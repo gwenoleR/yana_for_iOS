@@ -4,7 +4,7 @@ Ce projet est un portage de l'application Yana for Android de Novares en relatio
 
 L'adresse du GitHub de Idleman est : https://github.com/ldleman
 
-L'adresse du GitHub de Novares est : https://github.com/Etsuni/YANA/blob/master/README.md
+L'adresse du GitHub de Novares est : https://github.com/Etsuni/YANA/blob/master
 
 L'adresse du site d'Idleman est : http://blog.idleman.fr/?page_id=2166
 
