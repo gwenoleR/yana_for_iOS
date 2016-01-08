@@ -1,0 +1,837 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2401FB611A2A3CEF00B0EF96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2401FB601A2A3CEF00B0EF96 /* main.m */; };
+		2401FB641A2A3CEF00B0EF96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2401FB631A2A3CEF00B0EF96 /* AppDelegate.m */; };
+		2401FB671A2A3CEF00B0EF96 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2401FB661A2A3CEF00B0EF96 /* ViewController.m */; };
+		2401FB6A1A2A3CEF00B0EF96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2401FB681A2A3CEF00B0EF96 /* Main.storyboard */; };
+		2401FB6C1A2A3CEF00B0EF96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2401FB6B1A2A3CEF00B0EF96 /* Images.xcassets */; };
+		2401FB6F1A2A3CEF00B0EF96 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2401FB6D1A2A3CEF00B0EF96 /* LaunchScreen.xib */; };
+		2401FB7B1A2A3CF000B0EF96 /* YanaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2401FB7A1A2A3CF000B0EF96 /* YanaTests.m */; };
+		2407041B1A5D28EA000DE32D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2407041A1A5D28EA000DE32D /* CFNetwork.framework */; };
+		2407041D1A5D28F7000DE32D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2407041C1A5D28F7000DE32D /* Security.framework */; };
+		2412A13A1B3D89680057E2E2 /* pleure.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2412A13C1B3D89680057E2E2 /* pleure.wav */; };
+		2435FDBE1A6458F800A16FD1 /* libiSpeechSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2435FDBD1A6458F800A16FD1 /* libiSpeechSDK.a */; };
+		2435FDC01A64590700A16FD1 /* iSpeechSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2435FDBF1A64590700A16FD1 /* iSpeechSDK.bundle */; };
+		243ADBC11A5BEC0F00154465 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243ADBC01A5BEC0F00154465 /* AudioToolbox.framework */; };
+		243ADBCC1A5BEC6600154465 /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 243ADBC31A5BEC6600154465 /* beep.wav */; };
+		243ADBCD1A5BEC6600154465 /* cris.wav in Resources */ = {isa = PBXBuildFile; fileRef = 243ADBC41A5BEC6600154465 /* cris.wav */; };
+		243ADBCE1A5BEC6600154465 /* eternuement.wav in Resources */ = {isa = PBXBuildFile; fileRef = 243ADBC51A5BEC6600154465 /* eternuement.wav */; };
+		243ADBCF1A5BEC6600154465 /* pet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 243ADBC61A5BEC6600154465 /* pet.wav */; };
+		243ADBD11A5BEC6600154465 /* poule.wav in Resources */ = {isa = PBXBuildFile; fileRef = 243ADBC81A5BEC6600154465 /* poule.wav */; };
+		243ADBD21A5BEC6600154465 /* rire.wav in Resources */ = {isa = PBXBuildFile; fileRef = 243ADBC91A5BEC6600154465 /* rire.wav */; };
+		243ADBD31A5BEC6600154465 /* rot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 243ADBCA1A5BEC6600154465 /* rot.wav */; };
+		243ADBD41A5BEC6600154465 /* sifflement.wav in Resources */ = {isa = PBXBuildFile; fileRef = 243ADBCB1A5BEC6600154465 /* sifflement.wav */; };
+		243B83E81B43F6F200134C2C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243B83E71B43F6F200134C2C /* NotificationCenter.framework */; };
+		243B83EE1B43F6F200134C2C /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243B83ED1B43F6F200134C2C /* TodayViewController.m */; };
+		243B83F01B43F6F200134C2C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243B83EF1B43F6F200134C2C /* MainInterface.storyboard */; };
+		243B83F31B43F6F200134C2C /* YanaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 243B83E51B43F6F200134C2C /* YanaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		243B84021B4547D500134C2C /* ConfigWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 243B84011B4547D500134C2C /* ConfigWidget.m */; };
+		24AF3FA71A6527AF00AA6983 /* AsstConf1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF3F9C1A6527AF00AA6983 /* AsstConf1ViewController.m */; };
+		24AF3FA81A6527AF00AA6983 /* AsstConf2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF3F9E1A6527AF00AA6983 /* AsstConf2ViewController.m */; };
+		24AF3FA91A6527AF00AA6983 /* AsstConf3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF3FA01A6527AF00AA6983 /* AsstConf3ViewController.m */; };
+		24AF3FAA1A6527AF00AA6983 /* AsstConf4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF3FA21A6527AF00AA6983 /* AsstConf4ViewController.m */; };
+		24AF3FAB1A6527AF00AA6983 /* AsstConf5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF3FA41A6527AF00AA6983 /* AsstConf5ViewController.m */; };
+		24AF3FAC1A6527AF00AA6983 /* AsstConf6ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF3FA61A6527AF00AA6983 /* AsstConf6ViewController.m */; };
+		24AF3FB51A6527BA00AA6983 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF3FAE1A6527BA00AA6983 /* ConfigurationViewController.m */; };
+		24AF3FB61A6527BA00AA6983 /* YanaForiOSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF3FB01A6527BA00AA6983 /* YanaForiOSTableViewController.m */; };
+		24AF3FB71A6527BA00AA6983 /* YanaSystemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF3FB21A6527BA00AA6983 /* YanaSystemTableViewController.m */; };
+		24AF3FB81A6527BA00AA6983 /* YourInformationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF3FB41A6527BA00AA6983 /* YourInformationsTableViewController.m */; };
+		A7B62CF81A59EA2E00D69C7F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B62CF71A59EA2E00D69C7F /* SystemConfiguration.framework */; };
+		A7EE79651A5B2CE0002FEE86 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EE79641A5B2CE0002FEE86 /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2401FB751A2A3CF000B0EF96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2401FB531A2A3CEF00B0EF96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2401FB5A1A2A3CEF00B0EF96;
+			remoteInfo = Yana;
+		};
+		243B83F11B43F6F200134C2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2401FB531A2A3CEF00B0EF96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 243B83E41B43F6F200134C2C;
+			remoteInfo = YanaWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		243B83F71B43F6F200134C2C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				243B83F31B43F6F200134C2C /* YanaWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2401FB5B1A2A3CEF00B0EF96 /* Yana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yana.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2401FB5F1A2A3CEF00B0EF96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2401FB601A2A3CEF00B0EF96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2401FB621A2A3CEF00B0EF96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2401FB631A2A3CEF00B0EF96 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2401FB651A2A3CEF00B0EF96 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2401FB661A2A3CEF00B0EF96 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2401FB691A2A3CEF00B0EF96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2401FB6B1A2A3CEF00B0EF96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2401FB6E1A2A3CEF00B0EF96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2401FB741A2A3CF000B0EF96 /* YanaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YanaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2401FB791A2A3CF000B0EF96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2401FB7A1A2A3CF000B0EF96 /* YanaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YanaTests.m; sourceTree = "<group>"; };
+		2407041A1A5D28EA000DE32D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		2407041C1A5D28F7000DE32D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		240E94F61A6405B9003EA7D4 /* iSpeechSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = iSpeechSDK.h; path = Yana/iSpeech/iSpeechSDK.h; sourceTree = "<group>"; };
+		240E94F71A6405B9003EA7D4 /* iSpeechSDK+PaidFeatures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "iSpeechSDK+PaidFeatures.h"; path = "Yana/iSpeech/iSpeechSDK+PaidFeatures.h"; sourceTree = "<group>"; };
+		240E94F81A6405B9003EA7D4 /* ISSpeechRecognition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ISSpeechRecognition.h; path = Yana/iSpeech/ISSpeechRecognition.h; sourceTree = "<group>"; };
+		240E94F91A6405B9003EA7D4 /* ISSpeechRecognitionLocales.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ISSpeechRecognitionLocales.h; path = Yana/iSpeech/ISSpeechRecognitionLocales.h; sourceTree = "<group>"; };
+		240E94FA1A6405B9003EA7D4 /* ISSpeechRecognitionResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ISSpeechRecognitionResult.h; path = Yana/iSpeech/ISSpeechRecognitionResult.h; sourceTree = "<group>"; };
+		240E94FB1A6405B9003EA7D4 /* ISSpeechSynthesis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ISSpeechSynthesis.h; path = Yana/iSpeech/ISSpeechSynthesis.h; sourceTree = "<group>"; };
+		240E94FC1A6405B9003EA7D4 /* ISSpeechSynthesisVoices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ISSpeechSynthesisVoices.h; path = Yana/iSpeech/ISSpeechSynthesisVoices.h; sourceTree = "<group>"; };
+		240E94FD1A6405B9003EA7D4 /* ISViseme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ISViseme.h; path = Yana/iSpeech/ISViseme.h; sourceTree = "<group>"; };
+		2412A13B1B3D89680057E2E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Base; path = Base.lproj/pleure.wav; sourceTree = "<group>"; };
+		2435FDBD1A6458F800A16FD1 /* libiSpeechSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiSpeechSDK.a; path = Yana/iSpeech/libiSpeechSDK.a; sourceTree = "<group>"; };
+		2435FDBF1A64590700A16FD1 /* iSpeechSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = iSpeechSDK.bundle; path = iSpeech/iSpeechSDK.bundle; sourceTree = "<group>"; };
+		243ADBC01A5BEC0F00154465 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		243ADBC31A5BEC6600154465 /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
+		243ADBC41A5BEC6600154465 /* cris.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cris.wav; sourceTree = "<group>"; };
+		243ADBC51A5BEC6600154465 /* eternuement.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = eternuement.wav; sourceTree = "<group>"; };
+		243ADBC61A5BEC6600154465 /* pet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pet.wav; sourceTree = "<group>"; };
+		243ADBC81A5BEC6600154465 /* poule.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = poule.wav; sourceTree = "<group>"; };
+		243ADBC91A5BEC6600154465 /* rire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = rire.wav; sourceTree = "<group>"; };
+		243ADBCA1A5BEC6600154465 /* rot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = rot.wav; sourceTree = "<group>"; };
+		243ADBCB1A5BEC6600154465 /* sifflement.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sifflement.wav; sourceTree = "<group>"; };
+		243B83E51B43F6F200134C2C /* YanaWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = YanaWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		243B83E71B43F6F200134C2C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		243B83EB1B43F6F200134C2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		243B83EC1B43F6F200134C2C /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		243B83ED1B43F6F200134C2C /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		243B83EF1B43F6F200134C2C /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		243B83F81B43FC1300134C2C /* Yana.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Yana.entitlements; sourceTree = "<group>"; };
+		243B83F91B43FC2000134C2C /* YanaWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YanaWidget.entitlements; sourceTree = "<group>"; };
+		243B84001B4547D500134C2C /* ConfigWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigWidget.h; sourceTree = "<group>"; };
+		243B84011B4547D500134C2C /* ConfigWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigWidget.m; sourceTree = "<group>"; };
+		24AF3F9B1A6527AF00AA6983 /* AsstConf1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsstConf1ViewController.h; path = "Configuration/Assistant Configuration/AsstConf1ViewController.h"; sourceTree = "<group>"; };
+		24AF3F9C1A6527AF00AA6983 /* AsstConf1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsstConf1ViewController.m; path = "Configuration/Assistant Configuration/AsstConf1ViewController.m"; sourceTree = "<group>"; };
+		24AF3F9D1A6527AF00AA6983 /* AsstConf2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsstConf2ViewController.h; path = "Configuration/Assistant Configuration/AsstConf2ViewController.h"; sourceTree = "<group>"; };
+		24AF3F9E1A6527AF00AA6983 /* AsstConf2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsstConf2ViewController.m; path = "Configuration/Assistant Configuration/AsstConf2ViewController.m"; sourceTree = "<group>"; };
+		24AF3F9F1A6527AF00AA6983 /* AsstConf3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsstConf3ViewController.h; path = "Configuration/Assistant Configuration/AsstConf3ViewController.h"; sourceTree = "<group>"; };
+		24AF3FA01A6527AF00AA6983 /* AsstConf3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsstConf3ViewController.m; path = "Configuration/Assistant Configuration/AsstConf3ViewController.m"; sourceTree = "<group>"; };
+		24AF3FA11A6527AF00AA6983 /* AsstConf4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsstConf4ViewController.h; path = "Configuration/Assistant Configuration/AsstConf4ViewController.h"; sourceTree = "<group>"; };
+		24AF3FA21A6527AF00AA6983 /* AsstConf4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsstConf4ViewController.m; path = "Configuration/Assistant Configuration/AsstConf4ViewController.m"; sourceTree = "<group>"; };
+		24AF3FA31A6527AF00AA6983 /* AsstConf5ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsstConf5ViewController.h; path = "Configuration/Assistant Configuration/AsstConf5ViewController.h"; sourceTree = "<group>"; };
+		24AF3FA41A6527AF00AA6983 /* AsstConf5ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsstConf5ViewController.m; path = "Configuration/Assistant Configuration/AsstConf5ViewController.m"; sourceTree = "<group>"; };
+		24AF3FA51A6527AF00AA6983 /* AsstConf6ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsstConf6ViewController.h; path = "Configuration/Assistant Configuration/AsstConf6ViewController.h"; sourceTree = "<group>"; };
+		24AF3FA61A6527AF00AA6983 /* AsstConf6ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsstConf6ViewController.m; path = "Configuration/Assistant Configuration/AsstConf6ViewController.m"; sourceTree = "<group>"; };
+		24AF3FAD1A6527BA00AA6983 /* ConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigurationViewController.h; path = Configuration/ConfigurationViewController.h; sourceTree = "<group>"; };
+		24AF3FAE1A6527BA00AA6983 /* ConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigurationViewController.m; path = Configuration/ConfigurationViewController.m; sourceTree = "<group>"; };
+		24AF3FAF1A6527BA00AA6983 /* YanaForiOSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YanaForiOSTableViewController.h; path = Configuration/YanaForiOSTableViewController.h; sourceTree = "<group>"; };
+		24AF3FB01A6527BA00AA6983 /* YanaForiOSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YanaForiOSTableViewController.m; path = Configuration/YanaForiOSTableViewController.m; sourceTree = "<group>"; };
+		24AF3FB11A6527BA00AA6983 /* YanaSystemTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YanaSystemTableViewController.h; path = Configuration/YanaSystemTableViewController.h; sourceTree = "<group>"; };
+		24AF3FB21A6527BA00AA6983 /* YanaSystemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YanaSystemTableViewController.m; path = Configuration/YanaSystemTableViewController.m; sourceTree = "<group>"; };
+		24AF3FB31A6527BA00AA6983 /* YourInformationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YourInformationsTableViewController.h; path = Configuration/YourInformationsTableViewController.h; sourceTree = "<group>"; };
+		24AF3FB41A6527BA00AA6983 /* YourInformationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YourInformationsTableViewController.m; path = Configuration/YourInformationsTableViewController.m; sourceTree = "<group>"; };
+		A7B62CF71A59EA2E00D69C7F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A7EE79641A5B2CE0002FEE86 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2401FB581A2A3CEF00B0EF96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2407041D1A5D28F7000DE32D /* Security.framework in Frameworks */,
+				2407041B1A5D28EA000DE32D /* CFNetwork.framework in Frameworks */,
+				243ADBC11A5BEC0F00154465 /* AudioToolbox.framework in Frameworks */,
+				A7EE79651A5B2CE0002FEE86 /* QuartzCore.framework in Frameworks */,
+				2435FDBE1A6458F800A16FD1 /* libiSpeechSDK.a in Frameworks */,
+				A7B62CF81A59EA2E00D69C7F /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2401FB711A2A3CF000B0EF96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		243B83E21B43F6F200134C2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				243B83E81B43F6F200134C2C /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2401FB521A2A3CEF00B0EF96 = {
+			isa = PBXGroup;
+			children = (
+				2407041C1A5D28F7000DE32D /* Security.framework */,
+				2407041A1A5D28EA000DE32D /* CFNetwork.framework */,
+				2407040C1A5D285F000DE32D /* iSpeech */,
+				243ADBC21A5BEC4200154465 /* Sound */,
+				243ADBC01A5BEC0F00154465 /* AudioToolbox.framework */,
+				A7EE79641A5B2CE0002FEE86 /* QuartzCore.framework */,
+				A7B62CF71A59EA2E00D69C7F /* SystemConfiguration.framework */,
+				2401FB5D1A2A3CEF00B0EF96 /* Yana */,
+				2401FB771A2A3CF000B0EF96 /* YanaTests */,
+				243B83E91B43F6F200134C2C /* YanaWidget */,
+				243B83E61B43F6F200134C2C /* Frameworks */,
+				2401FB5C1A2A3CEF00B0EF96 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2401FB5C1A2A3CEF00B0EF96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2401FB5B1A2A3CEF00B0EF96 /* Yana.app */,
+				2401FB741A2A3CF000B0EF96 /* YanaTests.xctest */,
+				243B83E51B43F6F200134C2C /* YanaWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2401FB5D1A2A3CEF00B0EF96 /* Yana */ = {
+			isa = PBXGroup;
+			children = (
+				243B83F81B43FC1300134C2C /* Yana.entitlements */,
+				2401FB621A2A3CEF00B0EF96 /* AppDelegate.h */,
+				2401FB631A2A3CEF00B0EF96 /* AppDelegate.m */,
+				2401FB651A2A3CEF00B0EF96 /* ViewController.h */,
+				2401FB661A2A3CEF00B0EF96 /* ViewController.m */,
+				2401FB681A2A3CEF00B0EF96 /* Main.storyboard */,
+				A7EE79661A5B3C80002FEE86 /* Assistant Configuration */,
+				A7EE79601A5B1ACB002FEE86 /* Configuration */,
+				2401FB6B1A2A3CEF00B0EF96 /* Images.xcassets */,
+				2401FB6D1A2A3CEF00B0EF96 /* LaunchScreen.xib */,
+				2401FB5E1A2A3CEF00B0EF96 /* Supporting Files */,
+			);
+			path = Yana;
+			sourceTree = "<group>";
+		};
+		2401FB5E1A2A3CEF00B0EF96 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2435FDBF1A64590700A16FD1 /* iSpeechSDK.bundle */,
+				2401FB5F1A2A3CEF00B0EF96 /* Info.plist */,
+				2401FB601A2A3CEF00B0EF96 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2401FB771A2A3CF000B0EF96 /* YanaTests */ = {
+			isa = PBXGroup;
+			children = (
+				2401FB7A1A2A3CF000B0EF96 /* YanaTests.m */,
+				2401FB781A2A3CF000B0EF96 /* Supporting Files */,
+			);
+			path = YanaTests;
+			sourceTree = "<group>";
+		};
+		2401FB781A2A3CF000B0EF96 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2401FB791A2A3CF000B0EF96 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2407040C1A5D285F000DE32D /* iSpeech */ = {
+			isa = PBXGroup;
+			children = (
+				2407040F1A5D2878000DE32D /* Header */,
+			);
+			name = iSpeech;
+			sourceTree = "<group>";
+		};
+		2407040F1A5D2878000DE32D /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				240E94F61A6405B9003EA7D4 /* iSpeechSDK.h */,
+				240E94F71A6405B9003EA7D4 /* iSpeechSDK+PaidFeatures.h */,
+				240E94F81A6405B9003EA7D4 /* ISSpeechRecognition.h */,
+				240E94F91A6405B9003EA7D4 /* ISSpeechRecognitionLocales.h */,
+				240E94FA1A6405B9003EA7D4 /* ISSpeechRecognitionResult.h */,
+				240E94FB1A6405B9003EA7D4 /* ISSpeechSynthesis.h */,
+				240E94FC1A6405B9003EA7D4 /* ISSpeechSynthesisVoices.h */,
+				240E94FD1A6405B9003EA7D4 /* ISViseme.h */,
+				2435FDBD1A6458F800A16FD1 /* libiSpeechSDK.a */,
+			);
+			name = Header;
+			sourceTree = "<group>";
+		};
+		243ADBC21A5BEC4200154465 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				243ADBC31A5BEC6600154465 /* beep.wav */,
+				243ADBC41A5BEC6600154465 /* cris.wav */,
+				243ADBC51A5BEC6600154465 /* eternuement.wav */,
+				243ADBC61A5BEC6600154465 /* pet.wav */,
+				2412A13C1B3D89680057E2E2 /* pleure.wav */,
+				243ADBC81A5BEC6600154465 /* poule.wav */,
+				243ADBC91A5BEC6600154465 /* rire.wav */,
+				243ADBCA1A5BEC6600154465 /* rot.wav */,
+				243ADBCB1A5BEC6600154465 /* sifflement.wav */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
+		243B83E61B43F6F200134C2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				243B83E71B43F6F200134C2C /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		243B83E91B43F6F200134C2C /* YanaWidget */ = {
+			isa = PBXGroup;
+			children = (
+				243B83F91B43FC2000134C2C /* YanaWidget.entitlements */,
+				243B83EC1B43F6F200134C2C /* TodayViewController.h */,
+				243B83ED1B43F6F200134C2C /* TodayViewController.m */,
+				243B83EF1B43F6F200134C2C /* MainInterface.storyboard */,
+				243B83EA1B43F6F200134C2C /* Supporting Files */,
+			);
+			path = YanaWidget;
+			sourceTree = "<group>";
+		};
+		243B83EA1B43F6F200134C2C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				243B83EB1B43F6F200134C2C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7EE79601A5B1ACB002FEE86 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				24AF3FAD1A6527BA00AA6983 /* ConfigurationViewController.h */,
+				24AF3FAE1A6527BA00AA6983 /* ConfigurationViewController.m */,
+				24AF3FAF1A6527BA00AA6983 /* YanaForiOSTableViewController.h */,
+				24AF3FB01A6527BA00AA6983 /* YanaForiOSTableViewController.m */,
+				24AF3FB11A6527BA00AA6983 /* YanaSystemTableViewController.h */,
+				24AF3FB21A6527BA00AA6983 /* YanaSystemTableViewController.m */,
+				24AF3FB31A6527BA00AA6983 /* YourInformationsTableViewController.h */,
+				24AF3FB41A6527BA00AA6983 /* YourInformationsTableViewController.m */,
+				243B84001B4547D500134C2C /* ConfigWidget.h */,
+				243B84011B4547D500134C2C /* ConfigWidget.m */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		A7EE79661A5B3C80002FEE86 /* Assistant Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				24AF3F9B1A6527AF00AA6983 /* AsstConf1ViewController.h */,
+				24AF3F9C1A6527AF00AA6983 /* AsstConf1ViewController.m */,
+				24AF3F9D1A6527AF00AA6983 /* AsstConf2ViewController.h */,
+				24AF3F9E1A6527AF00AA6983 /* AsstConf2ViewController.m */,
+				24AF3F9F1A6527AF00AA6983 /* AsstConf3ViewController.h */,
+				24AF3FA01A6527AF00AA6983 /* AsstConf3ViewController.m */,
+				24AF3FA11A6527AF00AA6983 /* AsstConf4ViewController.h */,
+				24AF3FA21A6527AF00AA6983 /* AsstConf4ViewController.m */,
+				24AF3FA31A6527AF00AA6983 /* AsstConf5ViewController.h */,
+				24AF3FA41A6527AF00AA6983 /* AsstConf5ViewController.m */,
+				24AF3FA51A6527AF00AA6983 /* AsstConf6ViewController.h */,
+				24AF3FA61A6527AF00AA6983 /* AsstConf6ViewController.m */,
+			);
+			name = "Assistant Configuration";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2401FB5A1A2A3CEF00B0EF96 /* Yana */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2401FB7E1A2A3CF000B0EF96 /* Build configuration list for PBXNativeTarget "Yana" */;
+			buildPhases = (
+				2401FB571A2A3CEF00B0EF96 /* Sources */,
+				2401FB581A2A3CEF00B0EF96 /* Frameworks */,
+				2401FB591A2A3CEF00B0EF96 /* Resources */,
+				243B83F71B43F6F200134C2C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				243B83F21B43F6F200134C2C /* PBXTargetDependency */,
+			);
+			name = Yana;
+			productName = Yana;
+			productReference = 2401FB5B1A2A3CEF00B0EF96 /* Yana.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2401FB731A2A3CF000B0EF96 /* YanaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2401FB811A2A3CF000B0EF96 /* Build configuration list for PBXNativeTarget "YanaTests" */;
+			buildPhases = (
+				2401FB701A2A3CF000B0EF96 /* Sources */,
+				2401FB711A2A3CF000B0EF96 /* Frameworks */,
+				2401FB721A2A3CF000B0EF96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2401FB761A2A3CF000B0EF96 /* PBXTargetDependency */,
+			);
+			name = YanaTests;
+			productName = YanaTests;
+			productReference = 2401FB741A2A3CF000B0EF96 /* YanaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		243B83E41B43F6F200134C2C /* YanaWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 243B83F61B43F6F200134C2C /* Build configuration list for PBXNativeTarget "YanaWidget" */;
+			buildPhases = (
+				243B83E11B43F6F200134C2C /* Sources */,
+				243B83E21B43F6F200134C2C /* Frameworks */,
+				243B83E31B43F6F200134C2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YanaWidget;
+			productName = YanaWidget;
+			productReference = 243B83E51B43F6F200134C2C /* YanaWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2401FB531A2A3CEF00B0EF96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Gwénolé Roton";
+				TargetAttributes = {
+					2401FB5A1A2A3CEF00B0EF96 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = WE88RQG7J5;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					2401FB731A2A3CF000B0EF96 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 2401FB5A1A2A3CEF00B0EF96;
+					};
+					243B83E41B43F6F200134C2C = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = WE88RQG7J5;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 2401FB561A2A3CEF00B0EF96 /* Build configuration list for PBXProject "Yana" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2401FB521A2A3CEF00B0EF96;
+			productRefGroup = 2401FB5C1A2A3CEF00B0EF96 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2401FB5A1A2A3CEF00B0EF96 /* Yana */,
+				2401FB731A2A3CF000B0EF96 /* YanaTests */,
+				243B83E41B43F6F200134C2C /* YanaWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2401FB591A2A3CEF00B0EF96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				243ADBD21A5BEC6600154465 /* rire.wav in Resources */,
+				243ADBCF1A5BEC6600154465 /* pet.wav in Resources */,
+				243ADBCD1A5BEC6600154465 /* cris.wav in Resources */,
+				243ADBCC1A5BEC6600154465 /* beep.wav in Resources */,
+				2435FDC01A64590700A16FD1 /* iSpeechSDK.bundle in Resources */,
+				2401FB6A1A2A3CEF00B0EF96 /* Main.storyboard in Resources */,
+				243ADBD31A5BEC6600154465 /* rot.wav in Resources */,
+				2401FB6F1A2A3CEF00B0EF96 /* LaunchScreen.xib in Resources */,
+				243ADBD11A5BEC6600154465 /* poule.wav in Resources */,
+				2412A13A1B3D89680057E2E2 /* pleure.wav in Resources */,
+				2401FB6C1A2A3CEF00B0EF96 /* Images.xcassets in Resources */,
+				243ADBCE1A5BEC6600154465 /* eternuement.wav in Resources */,
+				243ADBD41A5BEC6600154465 /* sifflement.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2401FB721A2A3CF000B0EF96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		243B83E31B43F6F200134C2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				243B83F01B43F6F200134C2C /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2401FB571A2A3CEF00B0EF96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24AF3FB81A6527BA00AA6983 /* YourInformationsTableViewController.m in Sources */,
+				2401FB671A2A3CEF00B0EF96 /* ViewController.m in Sources */,
+				24AF3FB61A6527BA00AA6983 /* YanaForiOSTableViewController.m in Sources */,
+				24AF3FAB1A6527AF00AA6983 /* AsstConf5ViewController.m in Sources */,
+				24AF3FA91A6527AF00AA6983 /* AsstConf3ViewController.m in Sources */,
+				24AF3FA71A6527AF00AA6983 /* AsstConf1ViewController.m in Sources */,
+				24AF3FAA1A6527AF00AA6983 /* AsstConf4ViewController.m in Sources */,
+				2401FB641A2A3CEF00B0EF96 /* AppDelegate.m in Sources */,
+				24AF3FB71A6527BA00AA6983 /* YanaSystemTableViewController.m in Sources */,
+				24AF3FAC1A6527AF00AA6983 /* AsstConf6ViewController.m in Sources */,
+				2401FB611A2A3CEF00B0EF96 /* main.m in Sources */,
+				24AF3FA81A6527AF00AA6983 /* AsstConf2ViewController.m in Sources */,
+				243B84021B4547D500134C2C /* ConfigWidget.m in Sources */,
+				24AF3FB51A6527BA00AA6983 /* ConfigurationViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2401FB701A2A3CF000B0EF96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2401FB7B1A2A3CF000B0EF96 /* YanaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		243B83E11B43F6F200134C2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				243B83EE1B43F6F200134C2C /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2401FB761A2A3CF000B0EF96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2401FB5A1A2A3CEF00B0EF96 /* Yana */;
+			targetProxy = 2401FB751A2A3CF000B0EF96 /* PBXContainerItemProxy */;
+		};
+		243B83F21B43F6F200134C2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 243B83E41B43F6F200134C2C /* YanaWidget */;
+			targetProxy = 243B83F11B43F6F200134C2C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2401FB681A2A3CEF00B0EF96 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2401FB691A2A3CEF00B0EF96 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2401FB6D1A2A3CEF00B0EF96 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2401FB6E1A2A3CEF00B0EF96 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		2412A13C1B3D89680057E2E2 /* pleure.wav */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2412A13B1B3D89680057E2E2 /* Base */,
+			);
+			name = pleure.wav;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2401FB7C1A2A3CF000B0EF96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2401FB7D1A2A3CF000B0EF96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2401FB7F1A2A3CF000B0EF96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Yana/Yana.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Yana/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/dmin/Downloads/iSpeechSDK-Free-1.0.6",
+					"$(PROJECT_DIR)/Yana/iSpeech",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Yana.Yana;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0499a81e-61ef-4cc9-9ddd-ddc8ff74462c";
+				SDKROOT = iphoneos9.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2401FB801A2A3CF000B0EF96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Yana/Yana.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Yana/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/dmin/Downloads/iSpeechSDK-Free-1.0.6",
+					"$(PROJECT_DIR)/Yana/iSpeech",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Yana.Yana;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0499a81e-61ef-4cc9-9ddd-ddc8ff74462c";
+				SDKROOT = iphoneos9.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		2401FB821A2A3CF000B0EF96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YanaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ceipaf.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yana.app/Yana";
+			};
+			name = Debug;
+		};
+		2401FB831A2A3CF000B0EF96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YanaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ceipaf.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yana.app/Yana";
+			};
+			name = Release;
+		};
+		243B83F41B43F6F200134C2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = YanaWidget/YanaWidget.entitlements;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YanaWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Yana.Yana.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "01fadf72-ef59-4fc5-861c-6eaa71cf59ef";
+				SDKROOT = iphoneos9.2;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		243B83F51B43F6F200134C2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = YanaWidget/YanaWidget.entitlements;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = YanaWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Yana.Yana.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "01fadf72-ef59-4fc5-861c-6eaa71cf59ef";
+				SDKROOT = iphoneos9.2;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2401FB561A2A3CEF00B0EF96 /* Build configuration list for PBXProject "Yana" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2401FB7C1A2A3CF000B0EF96 /* Debug */,
+				2401FB7D1A2A3CF000B0EF96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2401FB7E1A2A3CF000B0EF96 /* Build configuration list for PBXNativeTarget "Yana" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2401FB7F1A2A3CF000B0EF96 /* Debug */,
+				2401FB801A2A3CF000B0EF96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2401FB811A2A3CF000B0EF96 /* Build configuration list for PBXNativeTarget "YanaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2401FB821A2A3CF000B0EF96 /* Debug */,
+				2401FB831A2A3CF000B0EF96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		243B83F61B43F6F200134C2C /* Build configuration list for PBXNativeTarget "YanaWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				243B83F41B43F6F200134C2C /* Debug */,
+				243B83F51B43F6F200134C2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2401FB531A2A3CEF00B0EF96 /* Project object */;
+}
