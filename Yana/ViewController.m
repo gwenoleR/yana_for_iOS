@@ -388,6 +388,8 @@
         for(int i=0;i< [[commandListV2 objectAtIndex:0]count];i++){
             [maListe addObject:[[commandListV2 objectAtIndex:0] objectAtIndex:i]];
             
+            NSLog(@"%@",[[commandListV2 objectAtIndex:0] objectAtIndex:i]);
+            
             /////// Création d'une liste sans virgule pour eviter les problemes a la reconnaissance vocale
             NSString *sansVir = [[commandListV2 objectAtIndex:0] objectAtIndex:i];
             NSCharacterSet *doNotWant = [NSCharacterSet characterSetWithCharactersInString:@"/:;()$&@\".,?!\'[]{}#%^*+=_|~<>€£¥•."];
@@ -661,8 +663,6 @@
                 }
             }
             
-            
-            
                 for(int i=0;i< [[reponse objectAtIndex:0]count];i++){
                     [monchat addObject:[[reponse objectAtIndex:1] objectAtIndex:i]];
                     if([[standardUserDefaults objectForKey:@"startTTS"] isEqualToString:@"YES"]){
@@ -682,6 +682,23 @@
             
             [self.tableView reloadData];
             [self scrollToBottom];
+            
+        }
+    }
+    
+    for(int i=0;i<[[commandListV2 objectAtIndex:0]count];i++){
+        if([command isEqualToString:([NSString stringWithFormat:@"%@",[[commandListV2 objectAtIndex:0] objectAtIndex:i]])]){
+            NSLog(@"%@",[[commandListV2 objectAtIndex:0] objectAtIndex:i]);
+            
+            [monchat addObject:command];
+            [self.tableView reloadData];
+            
+            NSString *response  = [NSString stringWithFormat:@"{\"action\":\"CATCH_COMMAND\",\"command\":\"%@\",\"confidence\":0.9,\"text\":\"\"}<EOF>",[[commandListV2 objectAtIndex:0] objectAtIndex:i]];
+            NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+            [outputStream write:[data bytes] maxLength:[data length]];
+            
+            NSLog(@"Message send : %@",response);
+            
             
         }
     }
@@ -745,6 +762,39 @@
                         
                         if (nil != output) {
                             NSLog(@"server said: %@", output);
+
+                            
+                            NSData *jsonData = [output dataUsingEncoding:NSUTF8StringEncoding];
+                            NSError *error;
+                            NSDictionary *jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+                            
+                            
+                            if (jsonObjects != NULL)
+                            {
+                                NSString *action = [jsonObjects objectForKey:@"action"];
+                                NSLog(@"action: %@", action);
+                                if([action isEqualToString:@"talk"]){
+                                    NSString *message = [jsonObjects objectForKey:@"message"];
+                                    NSLog(@"message: %@",message);
+                                    
+                                    [monchat addObject:message];
+                                    [self.tableView reloadData];
+                                }
+                                else if([[jsonObjects objectForKey:@"action"]isEqualToString:(@"sound")]){
+                                    
+                                    NSString *file = [jsonObjects objectForKey:@"file"];
+                                    
+                                    NSString* son = [[file lastPathComponent] stringByDeletingPathExtension];
+                                    NSLog(@"son : %@",son);
+                                    
+                                    NSURL *sonURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:son ofType:@"wav"]];
+                                    AudioServicesCreateSystemSoundID((__bridge CFURLRef) sonURL, &SoundId );
+                                    AudioServicesPlaySystemSound(SoundId);
+                                    
+                                    
+                                }
+                            }
+                            
                         }
                     }
                 }
