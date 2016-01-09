@@ -17,7 +17,7 @@
     UIAlertView *message;
 }
 
-@synthesize status,commandList,monchat,pv,recognition,commandListV2;
+@synthesize status,commandList,monchat,pv,recognition,commandListV2,inputStream, outputStream;
 
 - (void)didReceiveMemoryWarning
 {
@@ -32,12 +32,11 @@
     
     NSUserDefaults *mySharedDefaults = [[NSUserDefaults alloc] initWithSuiteName: @"group.Easy-Yana"];
     
-    
-    
     [super viewDidLoad];
     standardUserDefaults = [NSUserDefaults standardUserDefaults];
     [standardUserDefaults synchronize];
     self.navigationItem.backBarButtonItem.title = @"";
+    
     
     // set the frame to zero
     self.pickerViewTextField = [[UITextField alloc] initWithFrame:CGRectZero];
@@ -69,7 +68,15 @@
     
     if ([[standardUserDefaults objectForKey:@"startUpdateCMD"] isEqualToString:@"YES"]) {
             [self refreshCommand];
+
     }
+    
+    //Initialise connection socket
+    [self initSocketCommunication];
+    
+    //Demarrage des client V2
+    [self startClientListen];
+    [self startClientSpeaker];
     
     if([[standardUserDefaults objectForKey:@"userToken"] isEqualToString:@"0"] || [[standardUserDefaults objectForKey:@"userToken"] isEqualToString:@""]){
         
@@ -378,9 +385,21 @@
             [commandVoc addObject:sansVir];
             
         }
+        for(int i=0;i< [[commandListV2 objectAtIndex:0]count];i++){
+            [maListe addObject:[[commandListV2 objectAtIndex:0] objectAtIndex:i]];
+            
+            /////// Création d'une liste sans virgule pour eviter les problemes a la reconnaissance vocale
+            NSString *sansVir = [[commandListV2 objectAtIndex:0] objectAtIndex:i];
+            NSCharacterSet *doNotWant = [NSCharacterSet characterSetWithCharactersInString:@"/:;()$&@\".,?!\'[]{}#%^*+=_|~<>€£¥•."];
+            sansVir = [[sansVir componentsSeparatedByCharactersInSet: doNotWant] componentsJoinedByString: @""];
+            [commandVoc addObject:sansVir];
+            
+        }
+        
         [self.myPicker reloadAllComponents];
         [self.buttonItem setEnabled:YES];
         [self.buttonItem2 setEnabled:YES];
+        
     }
     ////////// PRINT ERROR WHEN CAN'T GET JSONDATA //////////
     else {
@@ -671,4 +690,88 @@
     
 }
 
+- (void)initSocketCommunication {
+    
+    uint portNo = 9999;
+    CFReadStreamRef readStream;
+    CFWriteStreamRef writeStream;
+    CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)savedServer, portNo, &readStream, &writeStream);
+    inputStream = (__bridge NSInputStream *)readStream;
+    outputStream = (__bridge NSOutputStream *)writeStream;
+    
+    [inputStream setDelegate:self];
+    [outputStream setDelegate:self];
+    
+    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [inputStream open];
+    [outputStream open];
+    
+}
+
+-(void)startClientListen{
+    
+    NSString *response  = [NSString stringWithFormat:@"{\"action\":\"CLIENT_INFOS\",\"version\":\"2\",\"type\":\"listen\",\"location\":\"mobile\",\"token\":\"%@\"}<EOF>",savedToken];
+    NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    [outputStream write:[data bytes] maxLength:[data length]];
+    
+}
+
+-(void)startClientSpeaker{
+    
+    NSString *response  = [NSString stringWithFormat:@"{\"action\":\"CLIENT_INFOS\",\"version\":\"2\",\"type\":\"speak\",\"location\":\"mobile\",\"token\":\"%@\"}<EOF>",savedToken];
+    NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    [outputStream write:[data bytes] maxLength:[data length]];
+    
+}
+
+- (void)stream:(NSStream *)theStream handleEvent:(NSStreamEvent)streamEvent {
+    uint8_t buffer[1024];
+    NSUInteger len;
+    
+    switch (streamEvent) {
+            
+        case NSStreamEventOpenCompleted:
+            NSLog(@"Stream opened now");
+            break;
+        case NSStreamEventHasBytesAvailable:
+            NSLog(@"has bytes");
+            if (theStream == inputStream) {
+                while ([inputStream hasBytesAvailable]) {
+                    len = [inputStream read:buffer maxLength:sizeof(buffer)];
+                    if (len > 0) {
+                        
+                        NSString *output = [[NSString alloc] initWithBytes:buffer length:len encoding:NSASCIIStringEncoding];
+                        
+                        if (nil != output) {
+                            NSLog(@"server said: %@", output);
+                        }
+                    }
+                }
+            } else {
+                NSLog(@"it is NOT theStream == inputStream");
+            }
+            break;
+        case NSStreamEventHasSpaceAvailable:
+            NSLog(@"Stream has space available now");
+            break;
+            
+            
+        case NSStreamEventErrorOccurred:
+            NSLog(@"Can not connect to the host! %lu",(unsigned long)streamEvent);
+            break;
+            
+            
+        case NSStreamEventEndEncountered:
+            
+            [theStream close];
+            [theStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+            
+            break;
+            
+        default:
+            NSLog(@"Unknown event %lu", (unsigned long)streamEvent);
+    }
+    
+}
 @end

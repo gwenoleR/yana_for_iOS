@@ -11,7 +11,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface ViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, ISSpeechRecognitionDelegate>
+@interface ViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, ISSpeechRecognitionDelegate,NSStreamDelegate>
 {
     SystemSoundID SoundId;
     NSMutableArray *maListe;
@@ -20,6 +20,8 @@
     NSArray *reponse;
     AVSpeechSynthesizer* mySynthesizer;
     NSInteger selectRow;
+    NSInputStream	*inputStream;
+    NSOutputStream	*outputStream;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *resultat;
@@ -29,6 +31,9 @@
 
 @property (retain, nonatomic) NSArray *commandList;
 @property (retain, nonatomic) NSArray *commandListV2;
+
+@property (nonatomic, retain) NSInputStream *inputStream;
+@property (nonatomic, retain) NSOutputStream *outputStream;
 
 @property (retain, nonatomic) NSMutableArray *monchat;
 @property (weak, nonatomic) IBOutlet UIPickerView *myPicker;
