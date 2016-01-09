@@ -17,7 +17,7 @@
     UIAlertView *message;
 }
 
-@synthesize status,commandList,monchat,pv,recognition;
+@synthesize status,commandList,monchat,pv,recognition,commandListV2;
 
 - (void)didReceiveMemoryWarning
 {
@@ -344,6 +344,10 @@
                        [NSMutableArray array],
                        [NSMutableArray array], nil];
         
+        commandListV2 = [NSArray arrayWithObjects:
+                         [NSMutableArray array],
+                         [NSMutableArray array], nil];
+        
         
         
         if(entries != (id)[NSNull null])
@@ -353,6 +357,10 @@
                 if ([item objectForKey:@"command"] && [item objectForKey:@"url"]) {
                     [[commandList objectAtIndex:0] addObject:[item objectForKey:@"command"]];
                     [[commandList objectAtIndex:1] addObject:[item objectForKey:@"url"]];
+                }
+                else if([item objectForKey:@"command"] && [item objectForKey:@"callback"]){
+                    [[commandListV2 objectAtIndex:0] addObject:[item objectForKey:@"command"]];
+                    [[commandListV2 objectAtIndex:1] addObject:[item objectForKey:@"callback"]];
                 }
             }
         }

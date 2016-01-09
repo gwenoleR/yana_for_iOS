@@ -28,6 +28,7 @@
 @property (nonatomic, strong) UITextField *pickerViewTextField;
 
 @property (retain, nonatomic) NSArray *commandList;
+@property (retain, nonatomic) NSArray *commandListV2;
 
 @property (retain, nonatomic) NSMutableArray *monchat;
 @property (weak, nonatomic) IBOutlet UIPickerView *myPicker;
