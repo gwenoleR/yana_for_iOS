@@ -768,17 +768,22 @@
                             NSError *error;
                             NSDictionary *jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
                             
+                            reponse = [NSArray arrayWithObjects:
+                                       [NSMutableArray array],nil];
+                            
+                            bool play = true;
                             
                             if (jsonObjects != NULL)
                             {
                                 NSString *action = [jsonObjects objectForKey:@"action"];
                                 NSLog(@"action: %@", action);
                                 if([action isEqualToString:@"talk"]){
-                                    NSString *message = [jsonObjects objectForKey:@"message"];
-                                    NSLog(@"message: %@",message);
+                                    NSLog(@"message: %@",[jsonObjects objectForKey:@"message"]);
                                     
-                                    [monchat addObject:message];
+                                    [monchat addObject:[jsonObjects objectForKey:@"message"]];
+                                    [[reponse objectAtIndex:0] addObject:[jsonObjects objectForKey:@"message"]];
                                     [self.tableView reloadData];
+                                    [self scrollToBottom];
                                 }
                                 else if([[jsonObjects objectForKey:@"action"]isEqualToString:(@"sound")]){
                                     
@@ -791,7 +796,35 @@
                                     AudioServicesCreateSystemSoundID((__bridge CFURLRef) sonURL, &SoundId );
                                     AudioServicesPlaySystemSound(SoundId);
                                     
+                                    [[reponse objectAtIndex:0] addObject:[NSString stringWithFormat:@"Joue le son %@.wav",son]];
                                     
+                                    [monchat addObject:[NSString stringWithFormat:@"Joue le son %@.wav",son]];
+                                    [self.tableView reloadData];
+                                    [self scrollToBottom];
+                                    
+                                    play = false;
+                                    
+                                }
+                                else if ([action isEqualToString:@"execute"]){
+                                    [monchat addObject:@"Je ne peux pas faire ça."];
+                                    [[reponse objectAtIndex:0] addObject:@"Je ne peux pas faire ça."];
+                                    [self.tableView reloadData];
+                                    [self scrollToBottom];
+                                }
+                                
+                                for(int i=0;i< [[reponse objectAtIndex:0]count];i++){
+                                if([[standardUserDefaults objectForKey:@"startTTS"] isEqualToString:@"YES"]){
+                                    NSString *text = [NSString stringWithFormat:@"%@",[[reponse objectAtIndex:0] objectAtIndex:i]];
+                                    
+                                    AVSpeechUtterance* myTestUtterance = [[AVSpeechUtterance alloc] initWithString:text];
+                                    
+                                    myTestUtterance.rate = 0.5;
+                                    myTestUtterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"fr-fr"];
+                                    
+                                    if(play){
+                                        [mySynthesizer speakUtterance:myTestUtterance];
+                                    }
+                                }
                                 }
                             }
                             
