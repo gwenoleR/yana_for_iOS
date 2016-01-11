@@ -67,8 +67,8 @@
     monchat = [NSMutableArray array];
     
     if ([[standardUserDefaults objectForKey:@"startUpdateCMD"] isEqualToString:@"YES"]) {
-            [self refreshCommand];
-
+        [self refreshCommand];
+        
     }
     
     //Initialise connection socket
@@ -90,40 +90,40 @@
         [message show];
         
     }
-
-
+    
+    
     
     //////////////// SHOW THE SAVED SERVER IN THE actionLink /////////////
     if (![savedServer isEqualToString:@"(null)"] || ![savedServer isEqualToString:@""]) {
         self.actionLink.text = [NSString stringWithFormat:@"%@/yana-server/action.php",savedServer];
     }
-
-
+    
+    
     ////////////// CHECK EVENT ////////////
     if ([[standardUserDefaults objectForKey:@"setEvent"] isEqualToString:@"YES"]) {
         NSTimer* Timer = [NSTimer scheduledTimerWithTimeInterval: 30.0 target: self selector: @selector(checkEvent:) userInfo: nil repeats: YES];
     }
-
+    
     
     if ([[standardUserDefaults objectForKey:@"startWelcomeMessage"] isEqualToString:@"YES"]) {
         
-
-    ///// GENERATION DU MESSAGE ALEATOIRE ////
-    int indexMessage = [self getRandomNumberBetween:0 to:2];
-    
-    NSArray *messageAlea = @[[NSString stringWithFormat:@"Bonjour monsieur %@",[standardUserDefaults objectForKey:@"userLastName"]],
-                             [NSString stringWithFormat:@"Yo %@",[standardUserDefaults objectForKey:@"userPseudo"]],
-                             [NSString stringWithFormat:@"Salut %@",[standardUserDefaults objectForKey:@"userName"]]];
-    
-    
-    [monchat addObject:messageAlea[indexMessage]];
+        
+        ///// GENERATION DU MESSAGE ALEATOIRE ////
+        int indexMessage = [self getRandomNumberBetween:0 to:2];
+        
+        NSArray *messageAlea = @[[NSString stringWithFormat:@"Bonjour monsieur %@",[standardUserDefaults objectForKey:@"userLastName"]],
+                                 [NSString stringWithFormat:@"Yo %@",[standardUserDefaults objectForKey:@"userPseudo"]],
+                                 [NSString stringWithFormat:@"Salut %@",[standardUserDefaults objectForKey:@"userName"]]];
+        
+        
+        [monchat addObject:messageAlea[indexMessage]];
         
         
         NSString *text = [NSString stringWithFormat:@"%@",messageAlea[indexMessage]];
         
         if ([[standardUserDefaults objectForKey:@"startTTS"] isEqualToString:@"YES"]) {
             AVSpeechUtterance* myTestUtterance = [[AVSpeechUtterance alloc] initWithString:text];
-        
+            
             myTestUtterance.rate = 0.5;
             myTestUtterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"fr-fr"];
             [mySynthesizer speakUtterance:myTestUtterance];
@@ -145,80 +145,80 @@
 -(void) checkEvent:(NSTimer*) t
 {
     
-
+    
     NSString *connect = [NSString stringWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/yana-server/action.php?action=GET_EVENT&token=%@",savedServer,savedToken]] encoding:NO error:nil];
     
     if (connect == NULL) {
-
+        
     }
     else {
-
-    NSString *urlData;
-    NSError *error = nil;
-    
-    urlData = [NSString stringWithFormat:@"http://%@/yana-server/action.php?action=GET_EVENT&token=%@",savedServer,savedToken];
-    
-    NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlData]];
-    
-    id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
-    
-    
-    NSArray *entries = [jsonObjects objectForKey:@"responses"];
-    reponse = [NSArray arrayWithObjects:
-               [NSMutableArray array],
-               [NSMutableArray array], nil];
-    
-    
-    
-    if(entries != (id)[NSNull null])
-    {
         
-        for (NSDictionary *item in entries)
+        NSString *urlData;
+        NSError *error = nil;
+        
+        urlData = [NSString stringWithFormat:@"http://%@/yana-server/action.php?action=GET_EVENT&token=%@",savedServer,savedToken];
+        
+        NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlData]];
+        
+        id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+        
+        
+        NSArray *entries = [jsonObjects objectForKey:@"responses"];
+        reponse = [NSArray arrayWithObjects:
+                   [NSMutableArray array],
+                   [NSMutableArray array], nil];
+        
+        
+        
+        if(entries != (id)[NSNull null])
         {
-            if([[item objectForKey:@"type"]isEqualToString:(@"talk")]){
-                [[reponse objectAtIndex:0] addObject:[item objectForKey:@"type"]];
-                [[reponse objectAtIndex:1] addObject:[item objectForKey:@"sentence"]];
+            
+            for (NSDictionary *item in entries)
+            {
+                if([[item objectForKey:@"type"]isEqualToString:(@"talk")]){
+                    [[reponse objectAtIndex:0] addObject:[item objectForKey:@"type"]];
+                    [[reponse objectAtIndex:1] addObject:[item objectForKey:@"sentence"]];
+                }
+                else if([[item objectForKey:@"type"]isEqualToString:(@"sound")]){
+                    [[reponse objectAtIndex:0] addObject:[item objectForKey:@"type"]];
+                    [[reponse objectAtIndex:1] addObject:[NSString stringWithFormat:@" Joue le son : %@",[item objectForKey:@"file"]]];
+                    
+                    NSURL *buttonURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[item objectForKey:@"file"]] ofType:@"wav"]];
+                    AudioServicesCreateSystemSoundID((__bridge CFURLRef) buttonURL, &SoundId );
+                    
+                    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+                    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+                    localNotification.alertBody = [NSString stringWithFormat:@"Le son %@.wav a été joué",[item objectForKey:@"file"]];
+                    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+                    localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+                    
+                    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+                    
+                }
             }
-            else if([[item objectForKey:@"type"]isEqualToString:(@"sound")]){
-                [[reponse objectAtIndex:0] addObject:[item objectForKey:@"type"]];
-                [[reponse objectAtIndex:1] addObject:[NSString stringWithFormat:@" Joue le son : %@",[item objectForKey:@"file"]]];
+            
+            for(int i=0;i< [[reponse objectAtIndex:0]count];i++){
+                [monchat addObject:[[reponse objectAtIndex:1] objectAtIndex:i]];
                 
-                NSURL *buttonURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[item objectForKey:@"file"]] ofType:@"wav"]];
-                AudioServicesCreateSystemSoundID((__bridge CFURLRef) buttonURL, &SoundId );
                 
-                UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-                localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
-                localNotification.alertBody = [NSString stringWithFormat:@"Le son %@.wav a été joué",[item objectForKey:@"file"]];
-                localNotification.timeZone = [NSTimeZone defaultTimeZone];
-                localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
                 
-                [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+                NSString *text = [NSString stringWithFormat:@"%@",[[reponse objectAtIndex:1] objectAtIndex:i]];
+                
+                AVSpeechUtterance* myTestUtterance = [[AVSpeechUtterance alloc] initWithString:text];
+                
+                
+                myTestUtterance.rate = 0.2;
+                myTestUtterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"fr-fr"];
+                [mySynthesizer speakUtterance:myTestUtterance];
                 
             }
+            
+            
+            AudioServicesPlaySystemSound(SoundId);
+            
+            [self.tableView reloadData];
         }
         
-        for(int i=0;i< [[reponse objectAtIndex:0]count];i++){
-            [monchat addObject:[[reponse objectAtIndex:1] objectAtIndex:i]];
-            
-            
-            
-            NSString *text = [NSString stringWithFormat:@"%@",[[reponse objectAtIndex:1] objectAtIndex:i]];
-            
-            AVSpeechUtterance* myTestUtterance = [[AVSpeechUtterance alloc] initWithString:text];
-            
-
-            myTestUtterance.rate = 0.2;
-            myTestUtterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"fr-fr"];
-            [mySynthesizer speakUtterance:myTestUtterance];
-            
-        }
-        
-        
-        AudioServicesPlaySystemSound(SoundId);
-        
-        [self.tableView reloadData];
-    }
-    
     }
     
 }
@@ -374,7 +374,7 @@
         maListe = [[NSMutableArray alloc] init];
         commandVoc = [[NSMutableArray alloc] init];
         
-
+        
         for(int i=0;i< [[commandList objectAtIndex:0]count];i++){
             [maListe addObject:[[commandList objectAtIndex:0] objectAtIndex:i]];
             
@@ -505,9 +505,9 @@
 
 ///////// RECONNAISSANCE VOCALE /////
 - (void)recognition:(ISSpeechRecognition *)speechRecognition didGetRecognitionResult:(ISSpeechRecognitionResult *)result {
-
+    
     NSLog(@"Result: %@", result.text);
-
+    
     NSString *resultat;
     
     if ([result.text  isEqual: @""] || result.confidence < 0.4 ) {
@@ -526,20 +526,20 @@
         
         if([[standardUserDefaults objectForKey:@"startTTS"] isEqualToString:@"YES"]){
             AVSpeechUtterance* myTestUtterance = [[AVSpeechUtterance alloc] initWithString:resultat];
-        
-
+            
+            
             myTestUtterance.rate = 0.5;
             myTestUtterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"fr-fr"];
             [mySynthesizer speakUtterance:myTestUtterance];
         }
     }
     else{
-
+        
         for(int i=0;i<[[commandList objectAtIndex:0]count];i++){
             NSString *string = [result.text substringWithRange:NSMakeRange(4, result.text.length-4)];
-        
+            
             NSString *commande = [[commandList objectAtIndex:0] objectAtIndex:i];
-        
+            
             if ([string rangeOfString:[commande substringWithRange:NSMakeRange(5, commande.length-5)]].location == NSNotFound) {
             } else {
                 [self sendCommand:commande];
@@ -577,12 +577,12 @@
     standardUserDefaults = [NSUserDefaults standardUserDefaults];
     [standardUserDefaults synchronize];
     if ([[[NSUserDefaults standardUserDefaults]  valueForKey:@"useWeb"] isEqualToString:@"YES"]) {
-       /* if ([self checkNetwork]) {
-            savedServer = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]  valueForKey:@"serverIP"]];
-        }
-        else { */
-            savedServer = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]  valueForKey:@"serverIPExt"]];
-       // }
+        /* if ([self checkNetwork]) {
+         savedServer = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]  valueForKey:@"serverIP"]];
+         }
+         else { */
+        savedServer = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]  valueForKey:@"serverIPExt"]];
+        // }
     }
     else{
         savedServer = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]  valueForKey:@"serverIP"]];
@@ -594,7 +594,7 @@
 
 -(void)sendCommand:(NSString *)command{
     
-   
+    
     
     for(int i=0;i<[[commandList objectAtIndex:0]count];i++){
         if ([command isEqualToString:([NSString stringWithFormat:@"%@",[[commandList objectAtIndex:0] objectAtIndex:i]])])
@@ -650,34 +650,34 @@
                                 original=[original substringToIndex:i];
                             }
                         }
-
+                        
                         
                         NSURL *buttonURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:original ofType:@"wav"]];
                         AudioServicesCreateSystemSoundID((__bridge CFURLRef) buttonURL, &SoundId );
                         AudioServicesPlaySystemSound(SoundId);
                         z=0;
-
+                        
                         
                     }
-
+                    
                 }
             }
             
-                for(int i=0;i< [[reponse objectAtIndex:0]count];i++){
-                    [monchat addObject:[[reponse objectAtIndex:1] objectAtIndex:i]];
-                    if([[standardUserDefaults objectForKey:@"startTTS"] isEqualToString:@"YES"]){
-                        NSString *text = [NSString stringWithFormat:@"%@",[[reponse objectAtIndex:1] objectAtIndex:i]];
-                
-                        AVSpeechUtterance* myTestUtterance = [[AVSpeechUtterance alloc] initWithString:text];
-                
-                        myTestUtterance.rate = 0.5;
-                        myTestUtterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"fr-fr"];
-                        if(z !=0){
-                            [mySynthesizer speakUtterance:myTestUtterance];
-                
-                        }
+            for(int i=0;i< [[reponse objectAtIndex:0]count];i++){
+                [monchat addObject:[[reponse objectAtIndex:1] objectAtIndex:i]];
+                if([[standardUserDefaults objectForKey:@"startTTS"] isEqualToString:@"YES"]){
+                    NSString *text = [NSString stringWithFormat:@"%@",[[reponse objectAtIndex:1] objectAtIndex:i]];
+                    
+                    AVSpeechUtterance* myTestUtterance = [[AVSpeechUtterance alloc] initWithString:text];
+                    
+                    myTestUtterance.rate = 0.5;
+                    myTestUtterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"fr-fr"];
+                    if(z !=0){
+                        [mySynthesizer speakUtterance:myTestUtterance];
+                        
                     }
                 }
+            }
             
             
             [self.tableView reloadData];
@@ -694,7 +694,7 @@
             [self.tableView reloadData];
             
             NSString *response  = [NSString stringWithFormat:@"{\"action\":\"CATCH_COMMAND\",\"command\":\"%@\",\"confidence\":0.9,\"text\":\"\"}<EOF>",[[commandListV2 objectAtIndex:0] objectAtIndex:i]];
-            NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+            NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSUTF8StringEncoding]];
             [outputStream write:[data bytes] maxLength:[data length]];
             
             NSLog(@"Message send : %@",response);
@@ -702,7 +702,7 @@
             
         }
     }
-
+    
     
     
 }
@@ -729,7 +729,7 @@
 -(void)startClientListen{
     
     NSString *response  = [NSString stringWithFormat:@"{\"action\":\"CLIENT_INFOS\",\"version\":\"2\",\"type\":\"listen\",\"location\":\"mobile\",\"token\":\"%@\"}<EOF>",savedToken];
-    NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSUTF8StringEncoding]];
     [outputStream write:[data bytes] maxLength:[data length]];
     
 }
@@ -737,7 +737,7 @@
 -(void)startClientSpeaker{
     
     NSString *response  = [NSString stringWithFormat:@"{\"action\":\"CLIENT_INFOS\",\"version\":\"2\",\"type\":\"speak\",\"location\":\"mobile\",\"token\":\"%@\"}<EOF>",savedToken];
-    NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSUTF8StringEncoding]];
     [outputStream write:[data bytes] maxLength:[data length]];
     
 }
@@ -758,76 +758,80 @@
                     len = [inputStream read:buffer maxLength:sizeof(buffer)];
                     if (len > 0) {
                         
-                        NSString *output = [[NSString alloc] initWithBytes:buffer length:len encoding:NSASCIIStringEncoding];
+                        NSString *output = [[NSString alloc] initWithBytes:buffer length:len encoding:NSUTF8StringEncoding];
                         
                         if (nil != output) {
                             NSLog(@"server said: %@", output);
-
                             
-                            NSData *jsonData = [output dataUsingEncoding:NSUTF8StringEncoding];
-                            NSError *error;
-                            NSDictionary *jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+                            NSArray *lines = [output componentsSeparatedByString: @"<EOF>"];
+                            NSLog(@"%@",lines);
                             
-                            reponse = [NSArray arrayWithObjects:
-                                       [NSMutableArray array],nil];
-                            
-                            bool play = true;
-                            
-                            if (jsonObjects != NULL)
-                            {
-                                NSString *action = [jsonObjects objectForKey:@"action"];
-                                NSLog(@"action: %@", action);
-                                if([action isEqualToString:@"talk"]){
-                                    NSLog(@"message: %@",[jsonObjects objectForKey:@"message"]);
-                                    
-                                    [monchat addObject:[jsonObjects objectForKey:@"message"]];
-                                    [[reponse objectAtIndex:0] addObject:[jsonObjects objectForKey:@"message"]];
-                                    [self.tableView reloadData];
-                                    [self scrollToBottom];
-                                }
-                                else if([[jsonObjects objectForKey:@"action"]isEqualToString:(@"sound")]){
-                                    
-                                    NSString *file = [jsonObjects objectForKey:@"file"];
-                                    
-                                    NSString* son = [[file lastPathComponent] stringByDeletingPathExtension];
-                                    NSLog(@"son : %@",son);
-                                    
-                                    NSURL *sonURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:son ofType:@"wav"]];
-                                    AudioServicesCreateSystemSoundID((__bridge CFURLRef) sonURL, &SoundId );
-                                    AudioServicesPlaySystemSound(SoundId);
-                                    
-                                    [[reponse objectAtIndex:0] addObject:[NSString stringWithFormat:@"Joue le son %@.wav",son]];
-                                    
-                                    [monchat addObject:[NSString stringWithFormat:@"Joue le son %@.wav",son]];
-                                    [self.tableView reloadData];
-                                    [self scrollToBottom];
-                                    
-                                    play = false;
-                                    
-                                }
-                                else if ([action isEqualToString:@"execute"]){
-                                    [monchat addObject:@"Je ne peux pas faire ça."];
-                                    [[reponse objectAtIndex:0] addObject:@"Je ne peux pas faire ça."];
-                                    [self.tableView reloadData];
-                                    [self scrollToBottom];
-                                }
+                            for(int i=0;i<lines.count;i++){
                                 
-                                for(int i=0;i< [[reponse objectAtIndex:0]count];i++){
-                                if([[standardUserDefaults objectForKey:@"startTTS"] isEqualToString:@"YES"]){
-                                    NSString *text = [NSString stringWithFormat:@"%@",[[reponse objectAtIndex:0] objectAtIndex:i]];
+                                NSData *jsonData = [[lines objectAtIndex:i] dataUsingEncoding:NSUTF8StringEncoding];
+                                NSError *error;
+                                NSDictionary *jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+                                
+                                reponse = [NSArray arrayWithObjects:
+                                           [NSMutableArray array],nil];
+                                
+                                bool play = true;
+                                
+                                if (jsonObjects != NULL)
+                                {
+                                    NSString *action = [jsonObjects objectForKey:@"action"];
+                                    NSLog(@"action: %@", action);
+                                    if([action isEqualToString:@"talk"]){
+                                        NSLog(@"message: %@",[jsonObjects objectForKey:@"message"]);
+                                        
+                                        [monchat addObject:[jsonObjects objectForKey:@"message"]];
+                                        [[reponse objectAtIndex:0] addObject:[jsonObjects objectForKey:@"message"]];
+                                        [self.tableView reloadData];
+                                        [self scrollToBottom];
+                                    }
+                                    else if([[jsonObjects objectForKey:@"action"]isEqualToString:(@"sound")]){
+                                        
+                                        NSString *file = [jsonObjects objectForKey:@"file"];
+                                        
+                                        NSString* son = [[file lastPathComponent] stringByDeletingPathExtension];
+                                        NSLog(@"son : %@",son);
+                                        
+                                        NSURL *sonURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:son ofType:@"wav"]];
+                                        AudioServicesCreateSystemSoundID((__bridge CFURLRef) sonURL, &SoundId );
+                                        AudioServicesPlaySystemSound(SoundId);
+                                        
+                                        [[reponse objectAtIndex:0] addObject:[NSString stringWithFormat:@"Joue le son %@.wav",son]];
+                                        
+                                        [monchat addObject:[NSString stringWithFormat:@"Joue le son %@.wav",son]];
+                                        [self.tableView reloadData];
+                                        [self scrollToBottom];
+                                        
+                                        play = false;
+                                        
+                                    }
+                                    else if ([action isEqualToString:@"execute"]){
+                                        [monchat addObject:@"Je ne peux pas faire ça."];
+                                        [[reponse objectAtIndex:0] addObject:@"Je ne peux pas faire ça."];
+                                        [self.tableView reloadData];
+                                        [self scrollToBottom];
+                                    }
                                     
-                                    AVSpeechUtterance* myTestUtterance = [[AVSpeechUtterance alloc] initWithString:text];
-                                    
-                                    myTestUtterance.rate = 0.5;
-                                    myTestUtterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"fr-fr"];
-                                    
-                                    if(play){
-                                        [mySynthesizer speakUtterance:myTestUtterance];
+                                    for(int i=0;i< [[reponse objectAtIndex:0]count];i++){
+                                        if([[standardUserDefaults objectForKey:@"startTTS"] isEqualToString:@"YES"]){
+                                            NSString *text = [NSString stringWithFormat:@"%@",[[reponse objectAtIndex:0] objectAtIndex:i]];
+                                            
+                                            AVSpeechUtterance* myTestUtterance = [[AVSpeechUtterance alloc] initWithString:text];
+                                            
+                                            myTestUtterance.rate = 0.5;
+                                            myTestUtterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"fr-fr"];
+                                            
+                                            if(play){
+                                                [mySynthesizer speakUtterance:myTestUtterance];
+                                            }
+                                        }
                                     }
                                 }
-                                }
                             }
-                            
                         }
                     }
                 }
