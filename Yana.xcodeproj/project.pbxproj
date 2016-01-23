@@ -420,7 +420,7 @@
 		2401FB531A2A3CEF00B0EF96 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Gwénolé Roton";
 				TargetAttributes = {
 					2401FB5A1A2A3CEF00B0EF96 = {
@@ -683,7 +683,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Yana.Yana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0499a81e-61ef-4cc9-9ddd-ddc8ff74462c";
-				SDKROOT = iphoneos9.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -707,7 +707,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Yana.Yana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0499a81e-61ef-4cc9-9ddd-ddc8ff74462c";
-				SDKROOT = iphoneos9.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -766,7 +766,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Yana.Yana.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "01fadf72-ef59-4fc5-861c-6eaa71cf59ef";
-				SDKROOT = iphoneos9.2;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -787,7 +787,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Yana.Yana.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "01fadf72-ef59-4fc5-861c-6eaa71cf59ef";
-				SDKROOT = iphoneos9.2;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
