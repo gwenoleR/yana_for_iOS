@@ -846,6 +846,9 @@
             
         case NSStreamEventErrorOccurred:
             NSLog(@"Can not connect to the host! %lu",(unsigned long)streamEvent);
+            [monchat addObject:@"Impossible de joindre le serveur socket."];
+            [self.tableView reloadData];
+            [self scrollToBottom];
             break;
             
             
@@ -858,6 +861,9 @@
             
         default:
             NSLog(@"Unknown event %lu", (unsigned long)streamEvent);
+            [monchat addObject:@"Une erreur inattendue est survenue"];
+            [self.tableView reloadData];
+            [self scrollToBottom];
     }
     
 }
