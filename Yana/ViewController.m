@@ -534,15 +534,23 @@
         }
     }
     else{
-        
+        bool find = false;
         for(int i=0;i<[[commandList objectAtIndex:0]count];i++){
-            NSString *string = [result.text substringWithRange:NSMakeRange(4, result.text.length-4)];
             
-            NSString *commande = [[commandList objectAtIndex:0] objectAtIndex:i];
-            
-            if ([string rangeOfString:[commande substringWithRange:NSMakeRange(5, commande.length-5)]].location == NSNotFound) {
-            } else {
-                [self sendCommand:commande];
+            if([result.text isEqualToString:[commandVoc objectAtIndex:i]]){
+                [self sendCommand:[[commandList objectAtIndex:0]objectAtIndex:i]];
+                find = true;
+            }
+        }
+        if(!find){
+            [monchat addObject:@"Désolé, une erreur est survenue à l'envoi de la commande."];
+            [self.tableView reloadData];
+            [self scrollToBottom];
+            if([[standardUserDefaults objectForKey:@"startTTS"] isEqualToString:@"YES"]){
+                AVSpeechUtterance* myTestUtterance = [[AVSpeechUtterance alloc] initWithString:@"Désolé, une erreur est survenue à l'envoi de la commande."];
+                myTestUtterance.rate = 0.5;
+                myTestUtterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"fr-fr"];
+                [mySynthesizer speakUtterance:myTestUtterance];
             }
         }
     }
