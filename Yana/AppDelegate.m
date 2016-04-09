@@ -24,8 +24,13 @@
     
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     [standardUserDefaults synchronize];
+    
 
-    if ([[standardUserDefaults valueForKey:@"1stsTest"] integerValue] == 0) {
+
+    if ([[standardUserDefaults valueForKey:@"1stsTest"] integerValue] == 0 || [[standardUserDefaults valueForKey:@"newSavedServer"] isEqualToString:@"(null)"]) {
+        
+        [standardUserDefaults setValue:@"(null)" forKey:@"serverIP"];
+        [standardUserDefaults setValue:@"(null)" forKey:@"serverIPExt"];
 
         self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
         
@@ -36,6 +41,7 @@
         self.window.rootViewController = viewController;
         [self.window makeKeyAndVisible];
     }
+    
     
     application.applicationIconBadgeNumber = 0;
     

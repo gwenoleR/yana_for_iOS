@@ -41,7 +41,7 @@
     
     NSString *urlData;
     NSError *error = nil;
-    urlData = [NSString stringWithFormat:@"http://%@/yana-server/action.php?action=GET_SPEECH_COMMAND&token=%@",savedServer,savedToken];
+    urlData = [NSString stringWithFormat:@"http://%@/action.php?action=GET_SPEECH_COMMAND&token=%@",savedServer,savedToken];
     
     NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlData]];
     if (jsonData) {

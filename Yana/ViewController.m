@@ -95,7 +95,7 @@
     
     //////////////// SHOW THE SAVED SERVER IN THE actionLink /////////////
     if (![savedServer isEqualToString:@"(null)"] || ![savedServer isEqualToString:@""]) {
-        self.actionLink.text = [NSString stringWithFormat:@"%@/yana-server/action.php",savedServer];
+        self.actionLink.text = [NSString stringWithFormat:@"%@/action.php",savedServer];
     }
     
     
@@ -146,7 +146,7 @@
 {
     
     
-    NSString *connect = [NSString stringWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/yana-server/action.php?action=GET_EVENT&token=%@",savedServer,savedToken]] encoding:NO error:nil];
+    NSString *connect = [NSString stringWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/action.php?action=GET_EVENT&token=%@",savedServer,savedToken]] encoding:NO error:nil];
     
     if (connect == NULL) {
         
@@ -156,7 +156,7 @@
         NSString *urlData;
         NSError *error = nil;
         
-        urlData = [NSString stringWithFormat:@"http://%@/yana-server/action.php?action=GET_EVENT&token=%@",savedServer,savedToken];
+        urlData = [NSString stringWithFormat:@"http://%@/action.php?action=GET_EVENT&token=%@",savedServer,savedToken];
         
         NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlData]];
         
@@ -335,12 +335,12 @@
 - (void)refreshCommand {
     
     if (![savedServer isEqualToString:@"(null)"] || ![savedServer isEqualToString:@""]) {
-        self.actionLink.text = [NSString stringWithFormat:@"%@/yana-server/action.php",savedServer];
+        self.actionLink.text = [NSString stringWithFormat:@"%@/action.php",savedServer];
     }
     //////// REFRESH ALL COMMANDS //////////
     NSString *urlData;
     NSError *error = nil;
-    urlData = [NSString stringWithFormat:@"http://%@/yana-server/action.php?action=GET_SPEECH_COMMAND&token=%@",savedServer,savedToken];
+    urlData = [NSString stringWithFormat:@"http://%@/action.php?action=GET_SPEECH_COMMAND&token=%@",savedServer,savedToken];
     
     NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlData]];
     if (jsonData) {
@@ -434,6 +434,13 @@
     [self assignServer];
     [self checkSetting];
     [self refreshCommand];
+    
+    message = [[UIAlertView alloc] initWithTitle:@"Commandes"
+                                         message:@"Vos commandes sont maintenant à jour!"
+                                        delegate:nil
+                               cancelButtonTitle:@"OK"
+                               otherButtonTitles:nil];
+    [message show];
     
 }
 
@@ -581,16 +588,28 @@
     
     //////////////// USERDEFAULTS /////////////////
     
+    if ([[NSString stringWithFormat:@"%@",[standardUserDefaults objectForKey:@"newSavedServer"]] isEqualToString:@"(null)"]){
+        [standardUserDefaults setValue:@"1" forKey:@"newSavedServer"];
+        message = [[UIAlertView alloc] initWithTitle:@"Nouveautés"
+                                             message:@"Il y a des nouveautés ! Merci de mettre à jour l'ip interne et externe de votre serveur !"
+                                            delegate:nil
+                                   cancelButtonTitle:@"OK"
+                                   otherButtonTitles:nil];
+        [self.buttonItem setEnabled:NO];
+        [self.buttonItem2 setEnabled:NO];
+        [message show];
+    }
+    
     //Get the user's settings and store in savedServer & savedToken
     standardUserDefaults = [NSUserDefaults standardUserDefaults];
     [standardUserDefaults synchronize];
     if ([[[NSUserDefaults standardUserDefaults]  valueForKey:@"useWeb"] isEqualToString:@"YES"]) {
-        /* if ([self checkNetwork]) {
+        if ([self checkNetwork]) {
          savedServer = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]  valueForKey:@"serverIP"]];
          }
-         else { */
+         else {
         savedServer = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]  valueForKey:@"serverIPExt"]];
-        // }
+        }
     }
     else{
         savedServer = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]  valueForKey:@"serverIP"]];
@@ -717,7 +736,9 @@
 
 - (void)initSocketCommunication {
     
-    uint portNo = 9999;
+    
+    
+    int portNo = [[standardUserDefaults objectForKey:@"socketPort"] intValue];
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
     CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)savedServer, portNo, &readStream, &writeStream);

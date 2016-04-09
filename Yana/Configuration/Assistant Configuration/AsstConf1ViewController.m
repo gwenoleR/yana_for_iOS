@@ -127,6 +127,8 @@
     [standardUserDefaults setObject:[[reponse objectAtIndex:7] objectAtIndex:0] forKey:@"useWeb"];
     [standardUserDefaults setObject:[[reponse objectAtIndex:8] objectAtIndex:0] forKey:@"userToken"];
     
+    [standardUserDefaults setValue:@"1" forKey:@"newSavedServer"];
+    
     
     
 }

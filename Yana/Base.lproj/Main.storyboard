@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D9c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aeo-9Z-jAy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aeo-9Z-jAy">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -508,7 +508,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CELL" textLabel="Bjf-24-8da" style="IBUITableViewCellStyleDefault" id="2bK-1O-Ub8">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2bK-1O-Ub8" id="soZ-Qz-A6J">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -1259,8 +1259,8 @@
                                 <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="192.168.1.x" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2KZ-r7-aic">
-                                <rect key="frame" x="16" y="150" width="288" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="192.168.1.x/yana-server" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2KZ-r7-aic">
+                                <rect key="frame" x="16" y="149" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                 <connections>
@@ -1269,8 +1269,8 @@
                                     <outlet property="delegate" destination="Jtb-u7-5gi" id="TMz-7n-Zc1"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom de la box" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4DZ-ID-awt">
-                                <rect key="frame" x="16" y="230" width="288" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom de la box" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4DZ-ID-awt">
+                                <rect key="frame" x="16" y="225" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                 <connections>
@@ -1279,8 +1279,8 @@
                                     <outlet property="delegate" destination="Jtb-u7-5gi" id="YIC-7a-FXi"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="x.x.x.x ou contoso.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i6v-Gl-aGS">
-                                <rect key="frame" x="16" y="310" width="288" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="x.x.x.x ou contoso.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i6v-Gl-aGS">
+                                <rect key="frame" x="16" y="299" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                 <connections>
@@ -1289,8 +1289,8 @@
                                     <outlet property="delegate" destination="Jtb-u7-5gi" id="hgs-1S-ieu"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Token" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hyw-50-d3P">
-                                <rect key="frame" x="16" y="386" width="288" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Token" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hyw-50-d3P">
+                                <rect key="frame" x="16" y="374" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                 <connections>
@@ -1300,7 +1300,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lien externe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAX-Lb-JPO">
-                                <rect key="frame" x="26" y="280" width="86" height="21"/>
+                                <rect key="frame" x="26" y="270" width="86" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="Bf4-HJ-ePc"/>
                                     <constraint firstAttribute="height" constant="21" id="yz4-B2-cer"/>
@@ -1310,7 +1310,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nY5-SZ-wjS">
-                                <rect key="frame" x="26" y="357" width="86" height="21"/>
+                                <rect key="frame" x="26" y="345" width="86" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="5kv-2Z-Wlf"/>
                                     <constraint firstAttribute="width" constant="86" id="LFf-wA-bZS"/>
@@ -1319,21 +1319,38 @@
                                 <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Port socket" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrf-Jk-Jd5">
+                                <rect key="frame" x="26" y="419" width="86" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="5ot-Rw-4lh"/>
+                                    <constraint firstAttribute="height" constant="21" id="fjv-g3-5Su"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Par defaut : 9999" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oMF-Vd-aZw">
+                                <rect key="frame" x="20" y="450" width="277" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nY5-SZ-wjS" firstAttribute="top" secondItem="i6v-Gl-aGS" secondAttribute="bottom" constant="17" id="0Ar-ez-hzD"/>
-                            <constraint firstItem="qAX-Lb-JPO" firstAttribute="top" secondItem="4DZ-ID-awt" secondAttribute="bottom" constant="20" id="7DO-0Y-6dm"/>
+                            <constraint firstItem="nY5-SZ-wjS" firstAttribute="top" secondItem="i6v-Gl-aGS" secondAttribute="bottom" constant="16" id="0Ar-ez-hzD"/>
+                            <constraint firstItem="qAX-Lb-JPO" firstAttribute="top" secondItem="4DZ-ID-awt" secondAttribute="bottom" constant="15" id="7DO-0Y-6dm"/>
                             <constraint firstItem="hsY-z4-90k" firstAttribute="top" secondItem="Bad-Yo-B9Q" secondAttribute="bottom" constant="39" id="7oh-pF-ebG"/>
+                            <constraint firstItem="oMF-Vd-aZw" firstAttribute="top" secondItem="wrf-Jk-Jd5" secondAttribute="bottom" constant="8" symbolic="YES" id="86q-4h-sRj"/>
                             <constraint firstItem="2KZ-r7-aic" firstAttribute="trailing" secondItem="4DZ-ID-awt" secondAttribute="trailing" id="9ey-2d-HRu"/>
-                            <constraint firstItem="i6v-Gl-aGS" firstAttribute="trailing" secondItem="HjX-Px-6E5" secondAttribute="trailingMargin" id="HU4-My-vP6"/>
+                            <constraint firstItem="i6v-Gl-aGS" firstAttribute="trailing" secondItem="HjX-Px-6E5" secondAttribute="trailingMargin" constant="4" id="HU4-My-vP6"/>
+                            <constraint firstItem="wrf-Jk-Jd5" firstAttribute="top" secondItem="hyw-50-d3P" secondAttribute="bottom" constant="15" id="IIJ-Dk-pmu"/>
                             <constraint firstItem="S6K-4P-UZB" firstAttribute="baseline" secondItem="x96-7Y-7f0" secondAttribute="firstBaseline" id="KLZ-NY-EOE"/>
                             <constraint firstItem="2KZ-r7-aic" firstAttribute="leading" secondItem="4DZ-ID-awt" secondAttribute="leading" id="Mq6-bZ-zbK"/>
                             <constraint firstItem="nY5-SZ-wjS" firstAttribute="leading" secondItem="qAX-Lb-JPO" secondAttribute="leading" id="N92-Mb-XaC"/>
                             <constraint firstItem="qAX-Lb-JPO" firstAttribute="leading" secondItem="iAg-gd-e7d" secondAttribute="leading" id="NzM-zT-NAA"/>
                             <constraint firstItem="hyw-50-d3P" firstAttribute="leading" secondItem="i6v-Gl-aGS" secondAttribute="leading" id="O1O-gN-OiF"/>
-                            <constraint firstItem="2KZ-r7-aic" firstAttribute="top" secondItem="8m0-Jc-b0r" secondAttribute="bottom" constant="9" id="USg-D1-pRQ"/>
-                            <constraint firstItem="iAg-gd-e7d" firstAttribute="top" secondItem="2KZ-r7-aic" secondAttribute="bottom" constant="20" id="arK-aQ-jSY"/>
+                            <constraint firstItem="2KZ-r7-aic" firstAttribute="top" secondItem="8m0-Jc-b0r" secondAttribute="bottom" constant="8" id="USg-D1-pRQ"/>
+                            <constraint firstItem="iAg-gd-e7d" firstAttribute="top" secondItem="2KZ-r7-aic" secondAttribute="bottom" constant="21" id="arK-aQ-jSY"/>
                             <constraint firstItem="hyw-50-d3P" firstAttribute="top" secondItem="nY5-SZ-wjS" secondAttribute="bottom" constant="8" symbolic="YES" id="aut-K2-tEk"/>
                             <constraint firstItem="x96-7Y-7f0" firstAttribute="baseline" secondItem="S6K-4P-UZB" secondAttribute="firstBaseline" id="axl-QC-Uhb"/>
                             <constraint firstItem="hsY-z4-90k" firstAttribute="leading" secondItem="HjX-Px-6E5" secondAttribute="leadingMargin" constant="10" id="bIc-Gw-FJO"/>
@@ -1342,17 +1359,18 @@
                             <constraint firstItem="S6K-4P-UZB" firstAttribute="leading" secondItem="HjX-Px-6E5" secondAttribute="leading" id="ilC-j3-yPr"/>
                             <constraint firstItem="x96-7Y-7f0" firstAttribute="top" secondItem="S6K-4P-UZB" secondAttribute="top" id="jJl-qf-Uaf"/>
                             <constraint firstItem="x96-7Y-7f0" firstAttribute="leading" secondItem="S6K-4P-UZB" secondAttribute="trailing" id="kp7-Q3-3qu"/>
+                            <constraint firstItem="wrf-Jk-Jd5" firstAttribute="leading" secondItem="nY5-SZ-wjS" secondAttribute="leading" id="ooc-Wf-LE9"/>
                             <constraint firstItem="iAa-1X-a48" firstAttribute="leading" secondItem="8m0-Jc-b0r" secondAttribute="leading" id="pIi-g8-GC4"/>
                             <constraint firstItem="iAg-gd-e7d" firstAttribute="leading" secondItem="8m0-Jc-b0r" secondAttribute="leading" id="qLd-qe-ra3"/>
                             <constraint firstItem="4DZ-ID-awt" firstAttribute="trailing" secondItem="i6v-Gl-aGS" secondAttribute="trailing" id="qhV-ch-koL"/>
                             <constraint firstItem="S6K-4P-UZB" firstAttribute="bottom" secondItem="ACO-qN-vPA" secondAttribute="top" id="rqV-EL-1z2"/>
                             <constraint firstItem="iAa-1X-a48" firstAttribute="leading" secondItem="hsY-z4-90k" secondAttribute="leading" id="slb-Yr-Bow"/>
-                            <constraint firstItem="2KZ-r7-aic" firstAttribute="leading" secondItem="HjX-Px-6E5" secondAttribute="leadingMargin" id="uc0-IP-3Od"/>
+                            <constraint firstItem="2KZ-r7-aic" firstAttribute="leading" secondItem="HjX-Px-6E5" secondAttribute="leadingMargin" constant="-4" id="uc0-IP-3Od"/>
                             <constraint firstItem="4DZ-ID-awt" firstAttribute="leading" secondItem="i6v-Gl-aGS" secondAttribute="leading" id="wUC-l4-jWf"/>
                             <constraint firstItem="hyw-50-d3P" firstAttribute="trailing" secondItem="i6v-Gl-aGS" secondAttribute="trailing" id="wgU-ff-4WV"/>
                             <constraint firstAttribute="trailing" secondItem="x96-7Y-7f0" secondAttribute="trailing" id="yAW-yB-KTc"/>
-                            <constraint firstItem="i6v-Gl-aGS" firstAttribute="top" secondItem="qAX-Lb-JPO" secondAttribute="bottom" constant="9" id="zGt-LV-woV"/>
-                            <constraint firstItem="4DZ-ID-awt" firstAttribute="top" secondItem="iAg-gd-e7d" secondAttribute="bottom" constant="9" id="zsj-Id-O2H"/>
+                            <constraint firstItem="i6v-Gl-aGS" firstAttribute="top" secondItem="qAX-Lb-JPO" secondAttribute="bottom" constant="8" id="zGt-LV-woV"/>
+                            <constraint firstItem="4DZ-ID-awt" firstAttribute="top" secondItem="iAg-gd-e7d" secondAttribute="bottom" constant="4" id="zsj-Id-O2H"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="q5v-dR-B07" appends="YES" id="jKX-0Z-sfd"/>
@@ -1363,6 +1381,7 @@
                         <outlet property="IPext" destination="i6v-Gl-aGS" id="1cF-r6-Ekw"/>
                         <outlet property="IPint" destination="2KZ-r7-aic" id="otm-ga-BQG"/>
                         <outlet property="SSID" destination="4DZ-ID-awt" id="WcG-qV-QD1"/>
+                        <outlet property="SocketPort" destination="oMF-Vd-aZw" id="ksi-ig-k2a"/>
                         <outlet property="State" destination="hsY-z4-90k" id="nek-b2-hXU"/>
                         <outlet property="Title" destination="iAa-1X-a48" id="wk3-WU-1EG"/>
                         <outlet property="Token" destination="hyw-50-d3P" id="KD4-jj-0xZ"/>

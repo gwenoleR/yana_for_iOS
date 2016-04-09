@@ -16,9 +16,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *SSID;
 @property (weak, nonatomic) IBOutlet UITextField *IPext;
 @property (weak, nonatomic) IBOutlet UITextField *Token;
+@property (weak, nonatomic) IBOutlet UITextField *SocketPort;
 @property (weak, nonatomic) IBOutlet UILabel *Title;
 @property (weak, nonatomic) IBOutlet UILabel *text1;
 @property (weak, nonatomic) IBOutlet UILabel *text2;
+
 
 - (IBAction)Start:(id)sender;
 - (IBAction)Stop:(id)sender;
