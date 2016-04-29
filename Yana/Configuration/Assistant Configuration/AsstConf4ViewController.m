@@ -41,7 +41,7 @@
     if ([[NSString stringWithFormat:@"%@",[standardUserDefaults objectForKey:@"newSavedServer"]] isEqualToString:@"(null)"]){
         [standardUserDefaults setValue:@"1" forKey:@"newSavedServer"];
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Nouveautés"
-                                             message:@"Il y a des nouveautés ! Merci de mettre à jour l'ip interne et externe de votre serveur ainsi que d'ajouter le numero de port du socket !"
+                                             message:@"Il y a des nouveautés ! Merci de mettre à jour l'ip interne et externe de votre serveur !"
                                             delegate:nil
                                    cancelButtonTitle:@"OK"
                                    otherButtonTitles:nil];
@@ -62,7 +62,6 @@
     self.SSID.text = [standardUserDefaults objectForKey:@"networkSSID"];
     self.IPext.text = [standardUserDefaults objectForKey:@"serverIPExt"];
     self.Token.text = [standardUserDefaults objectForKey:@"userToken"];
-    self.SocketPort.text = [standardUserDefaults objectForKey:@"socketPort"];
 
     
     
@@ -107,7 +106,7 @@
     [standardUserDefaults setObject:self.SSID.text forKey:@"networkSSID"];
     [standardUserDefaults setObject:self.IPext.text forKey:@"serverIPExt"];
     [standardUserDefaults setObject:self.Token.text forKey:@"userToken"];
-    [standardUserDefaults setObject:self.SocketPort.text forKey:@"socketPort"];
+    [standardUserDefaults setObject:@"9999" forKey:@"socketPort"];
     
     [standardUserDefaults setValue:@"1" forKey:@"newSavedServer"];
     

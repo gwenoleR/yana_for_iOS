@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     /////////SET NAME TO POPUP, HIDE EMPTY CELL ON BOTTOM AND RENAME THE BACK BUTTON ///////
-    set = @[@"Adresse de la page (interne)", @"", @"Adresse de la page (externe)",@"Nom du réseau local connecté au Raspberry"];
+    set = @[@"Adresse de la page (interne)", @"", @"Adresse de la page (externe)",@"Nom du réseau local connecté au Raspberry",@"Port de connexion au serveur socket"];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.navigationItem.backBarButtonItem.title = @"";
 }
@@ -115,12 +115,12 @@
 -(void)saveSettings:(NSString *)data inThis:(NSString *)parameter {
     
     /////// VERIFY AND SAVE USER SETTINGS IN STANDARDUSERDEFAULT (SESSION VAR) /////////
-    NSMutableArray *valueToSet = [[NSMutableArray alloc] initWithCapacity: 4];
-    [valueToSet insertObject: [NSArray arrayWithObjects: @"Adresse de la page (interne)", @"Adresse de la page (externe)", @"Nom du réseau local connecté au Raspberry", @"Token permettant de vous identifier", nil] atIndex: 0];
-    [valueToSet insertObject: [NSArray arrayWithObjects: @"serverIP", @"serverIPExt", @"networkSSID", @"userToken", nil] atIndex: 1];
+    NSMutableArray *valueToSet = [[NSMutableArray alloc] initWithCapacity: 5];
+    [valueToSet insertObject: [NSArray arrayWithObjects: @"Adresse de la page (interne)", @"Adresse de la page (externe)", @"Nom du réseau local connecté au Raspberry", @"Token permettant de vous identifier",@"Port de connexion au serveur socket", nil] atIndex: 0];
+    [valueToSet insertObject: [NSArray arrayWithObjects: @"serverIP", @"serverIPExt", @"networkSSID", @"userToken",@"socketPort", nil] atIndex: 1];
     standardUserDefaults = [NSUserDefaults standardUserDefaults];
     int i;
-    for (i=0; i<4; i++) {
+    for (i=0; i<=4; i++) {
         if ([[[valueToSet objectAtIndex:0] objectAtIndex:i] isEqualToString:parameter]) {
             [standardUserDefaults setObject:data forKey:[[valueToSet objectAtIndex:1] objectAtIndex:i]];
             [standardUserDefaults synchronize];
@@ -134,12 +134,12 @@
     ///////// VERIFY AND LOAD USER SETTINGS ///////
     NSString *data;
     NSMutableArray *valueToSet = [[NSMutableArray alloc] initWithCapacity: 4];
-    [valueToSet insertObject: [NSArray arrayWithObjects: @"Adresse de la page (interne)", @"Adresse de la page (externe)", @"Nom du réseau local connecté au Raspberry", @"Token permettant de vous identifier", nil] atIndex: 0];
-    [valueToSet insertObject: [NSArray arrayWithObjects: @"serverIP", @"serverIPExt", @"networkSSID", @"userToken", nil] atIndex: 1];
+    [valueToSet insertObject: [NSArray arrayWithObjects: @"Adresse de la page (interne)", @"Adresse de la page (externe)", @"Nom du réseau local connecté au Raspberry", @"Token permettant de vous identifier",@"Port de connexion au serveur socket", nil] atIndex: 0];
+    [valueToSet insertObject: [NSArray arrayWithObjects: @"serverIP", @"serverIPExt", @"networkSSID", @"userToken",@"socketPort", nil] atIndex: 1];
     standardUserDefaults = [NSUserDefaults standardUserDefaults];
     [standardUserDefaults synchronize];
     int i;
-    for (i=0; i<4; i++) {
+    for (i=0; i<=4; i++) {
         if ([[[valueToSet objectAtIndex:0] objectAtIndex:i] isEqualToString:parameter]) {
             data = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] valueForKey:[[valueToSet objectAtIndex:1] objectAtIndex:i]]];
         }

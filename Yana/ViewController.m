@@ -737,7 +737,6 @@
 - (void)initSocketCommunication {
     
     
-    
     int portNo = [[standardUserDefaults objectForKey:@"socketPort"] intValue];
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;

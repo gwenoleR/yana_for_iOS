@@ -10,8 +10,10 @@
 
 @interface YanaSystemTableViewController : UITableViewController
 
+
 ////// STATIC CELL ////////
 @property (weak, nonatomic) IBOutlet UITableViewCell *cell3;
 @property (weak, nonatomic) IBOutlet UITableViewCell *cell4;
 @property (weak, nonatomic) IBOutlet UITableViewCell *cell2;
+@property (weak, nonatomic) IBOutlet UITableViewCell *cell5;
 @end
